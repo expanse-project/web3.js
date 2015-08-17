@@ -11,8 +11,8 @@
     var web3 = require('web3');
     var BigNumber = require('bignumber.js');
     web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"));
-    var from = web3.eth.coinbase;
-    web3.eth.defaultAccount = from;
+    var from = web3.exp.coinbase;
+    web3.exp.defaultAccount = from;
 
     var nameregAbi = [
         {"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"name","outputs":[{"name":"o_name","type":"bytes32"}],"type":"function"},
@@ -34,10 +34,10 @@
 
     var depositAbi = [{"constant":false,"inputs":[{"name":"name","type":"bytes32"}],"name":"deposit","outputs":[],"type":"function"}];
 
-    var Namereg = web3.eth.contract(nameregAbi);
-    var Deposit = web3.eth.contract(depositAbi);
+    var Namereg = web3.exp.contract(nameregAbi);
+    var Deposit = web3.exp.contract(depositAbi);
 
-    var namereg = web3.eth.ibanNamereg;
+    var namereg = web3.exp.ibanNamereg;
     var deposit; 
     var iban;
 
@@ -45,7 +45,7 @@
         var address = document.getElementById('namereg').value;
         var ok = web3.isAddress(address) || address === 'default';
         if (ok) {
-            namereg = address === 'default' ? web3.eth.ibanNamereg : Namereg.at(address);
+            namereg = address === 'default' ? web3.exp.ibanNamereg : Namereg.at(address);
             document.getElementById('nameregValidation').innerText = 'ok!';
         } else {
             document.getElementById('nameregValidation').innerText = 'namereg address is incorrect!';
@@ -116,7 +116,7 @@
     function updateIBAN(ok) {
         var exchangeId = document.getElementById('exchange').value;
         var clientId = document.getElementById('client').value; 
-        iban = web3.eth.iban.createIndirect({
+        iban = web3.exp.iban.createIndirect({
             institution: exchangeId,
             identifier: clientId
         });

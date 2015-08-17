@@ -3,32 +3,32 @@ var assert = chai.assert;
 var web3 = require('../index.js');
 var u = require('./helpers/test.utils.js');
 
-describe('web3.eth', function() {
+describe('web3.exp', function() {
     describe('methods', function() {
-        u.methodExists(web3.eth, 'getBalance');
-        u.methodExists(web3.eth, 'getStorageAt');
-        u.methodExists(web3.eth, 'getTransactionCount');
-        u.methodExists(web3.eth, 'getCode');
-        u.methodExists(web3.eth, 'sendTransaction');
-        u.methodExists(web3.eth, 'call');
-        u.methodExists(web3.eth, 'getBlock');
-        u.methodExists(web3.eth, 'getTransaction');
-        u.methodExists(web3.eth, 'getUncle');
-        u.methodExists(web3.eth, 'getCompilers');
-        u.methodExists(web3.eth.compile, 'lll');
-        u.methodExists(web3.eth.compile, 'solidity');
-        u.methodExists(web3.eth.compile, 'serpent');
-        u.methodExists(web3.eth, 'getBlockTransactionCount');
-        u.methodExists(web3.eth, 'getBlockUncleCount');
-        u.methodExists(web3.eth, 'filter');
-        u.methodExists(web3.eth, 'contract');
+        u.methodExists(web3.exp, 'getBalance');
+        u.methodExists(web3.exp, 'getStorageAt');
+        u.methodExists(web3.exp, 'getTransactionCount');
+        u.methodExists(web3.exp, 'getCode');
+        u.methodExists(web3.exp, 'sendTransaction');
+        u.methodExists(web3.exp, 'call');
+        u.methodExists(web3.exp, 'getBlock');
+        u.methodExists(web3.exp, 'getTransaction');
+        u.methodExists(web3.exp, 'getUncle');
+        u.methodExists(web3.exp, 'getCompilers');
+        u.methodExists(web3.exp.compile, 'lll');
+        u.methodExists(web3.exp.compile, 'solidity');
+        u.methodExists(web3.exp.compile, 'serpent');
+        u.methodExists(web3.exp, 'getBlockTransactionCount');
+        u.methodExists(web3.exp, 'getBlockUncleCount');
+        u.methodExists(web3.exp, 'filter');
+        u.methodExists(web3.exp, 'contract');
 
-        u.propertyExists(web3.eth, 'coinbase');
-        u.propertyExists(web3.eth, 'mining');
-        u.propertyExists(web3.eth, 'gasPrice');
-        u.propertyExists(web3.eth, 'accounts');
-        u.propertyExists(web3.eth, 'defaultBlock');
-        u.propertyExists(web3.eth, 'blockNumber');
+        u.propertyExists(web3.exp, 'coinbase');
+        u.propertyExists(web3.exp, 'mining');
+        u.propertyExists(web3.exp, 'gasPrice');
+        u.propertyExists(web3.exp, 'accounts');
+        u.propertyExists(web3.exp, 'defaultBlock');
+        u.propertyExists(web3.exp, 'blockNumber');
     });
 });
 

@@ -20,7 +20,7 @@ var tests = [{
     }],
     result: '0xf',
     formattedResult: '0xf',
-    call: 'eth_newFilter'
+    call: 'exp_newFilter'
 },{
     args: [{
         fromBlock: 'latest',
@@ -35,22 +35,22 @@ var tests = [{
     }],
     result: '0xf',
     formattedResult: '0xf',
-    call: 'eth_newFilter'
+    call: 'exp_newFilter'
 },{
     args: ['latest'],
     formattedArgs: [],
     result: '0xf',
     formattedResult: '0xf',
-    call: 'eth_newBlockFilter'
+    call: 'exp_newBlockFilter'
 },{
     args: ['pending'],
     formattedArgs: [],
     result: '0xf',
     formattedResult: '0xf',
-    call: 'eth_newPendingTransactionFilter'
+    call: 'exp_newPendingTransactionFilter'
 }];
 
-describe('web3.eth', function () {
+describe('web3.exp', function () {
     describe(method, function () {
         tests.forEach(function (test, index) {
             it('property test: ' + index, function () {
@@ -66,7 +66,7 @@ describe('web3.eth', function () {
                 });
 
                 // call
-                web3.eth[method].apply(null, test.args);
+                web3.exp[method].apply(null, test.args);
                 
             });
         });

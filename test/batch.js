@@ -32,15 +32,15 @@ describe('lib/web3/batch', function () {
                 var first = payload[0];
                 var second = payload[1];
 
-                assert.equal(first.method, 'eth_getBalance');
+                assert.equal(first.method, 'exp_getBalance');
                 assert.deepEqual(first.params, ['0x0000000000000000000000000000000000000000', 'latest']);
-                assert.equal(second.method, 'eth_getBalance');
+                assert.equal(second.method, 'exp_getBalance');
                 assert.deepEqual(second.params, ['0x0000000000000000000000000000000000000005', 'latest']);
             });
 
             var batch = web3.createBatch(); 
-            batch.add(web3.eth.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback));
-            batch.add(web3.eth.getBalance.request('0x0000000000000000000000000000000000000005', 'latest', callback2));
+            batch.add(web3.exp.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback));
+            batch.add(web3.exp.getBalance.request('0x0000000000000000000000000000000000000005', 'latest', callback2));
             batch.execute();
         });
         
@@ -70,14 +70,14 @@ describe('lib/web3/batch', function () {
                 var first = payload[0];
                 var second = payload[1];
 
-                assert.equal(first.method, 'eth_accounts');
+                assert.equal(first.method, 'exp_accounts');
                 assert.deepEqual(first.params, []);
                 assert.equal(second.method, 'net_peerCount');
                 assert.deepEqual(second.params, []);
             });
 
             var batch = web3.createBatch(); 
-            batch.add(web3.eth.getAccounts.request(callback));
+            batch.add(web3.exp.getAccounts.request(callback));
             batch.add(web3.net.getPeerCount.request(callback2));
             batch.execute();
         });
@@ -123,9 +123,9 @@ describe('lib/web3/batch', function () {
                 var first = payload[0];
                 var second = payload[1];
 
-                assert.equal(first.method, 'eth_getBalance');
+                assert.equal(first.method, 'exp_getBalance');
                 assert.deepEqual(first.params, ['0x0000000000000000000000000000000000000000', 'latest']);
-                assert.equal(second.method, 'eth_call');
+                assert.equal(second.method, 'exp_call');
                 assert.deepEqual(second.params, [{
                     'to': '0x1000000000000000000000000000000000000001',
                     'data': '0xe3d670d70000000000000000000000001000000000000000000000000000000000000001'
@@ -133,8 +133,8 @@ describe('lib/web3/batch', function () {
             });
 
             var batch = web3.createBatch(); 
-            batch.add(web3.eth.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback));
-            batch.add(web3.eth.contract(abi).at(address).balance.request(address, callback2));
+            batch.add(web3.exp.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback));
+            batch.add(web3.exp.contract(abi).at(address).balance.request(address, callback2));
             provider.injectBatchResults([result, result2]);
             batch.execute();
         });
@@ -181,9 +181,9 @@ describe('lib/web3/batch', function () {
                 var first = payload[0];
                 var second = payload[1];
 
-                assert.equal(first.method, 'eth_getBalance');
+                assert.equal(first.method, 'exp_getBalance');
                 assert.deepEqual(first.params, ['0x0000000000000000000000000000000000000000', 'latest']);
-                assert.equal(second.method, 'eth_call');
+                assert.equal(second.method, 'exp_call');
                 assert.deepEqual(second.params, [{
                     'to': '0x1000000000000000000000000000000000000001',
                     'data': '0xe3d670d70000000000000000000000001000000000000000000000000000000000000001'
@@ -191,8 +191,8 @@ describe('lib/web3/batch', function () {
             });
 
             var batch = web3.createBatch(); 
-            batch.add(web3.eth.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback));
-            batch.add(web3.eth.contract(abi).at(address).balance.request(address, callback2));
+            batch.add(web3.exp.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback));
+            batch.add(web3.exp.contract(abi).at(address).balance.request(address, callback2));
             provider.injectBatchResults([result, result2], true); // injects error
             batch.execute();
         });

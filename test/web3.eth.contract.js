@@ -3,7 +3,7 @@ var contract = require('../lib/web3/contract.js');
 var FakeHttpProvider = require('./helpers/FakeHttpProvider');
 var web3 = require('../index');
 
-describe('web3.eth.contract', function() {
+describe('web3.exp.contract', function() {
     it('should create simple contract with one method from abi with explicit type name', function () {
         
         // given
@@ -225,13 +225,13 @@ describe('web3.eth.contract', function() {
         provider.injectValidation(function (payload) {
             if(steps === 1) {
                 assert.equal(payload.jsonrpc, '2.0');
-                assert.equal(payload.method, 'eth_sendTransaction');
+                assert.equal(payload.method, 'exp_sendTransaction');
                 assert.equal(payload.params[0].data, code + '0000000000000000000000000000000000000000000000000000000000000002');
                 steps++;
 
             } else if(steps === 2) {
                 assert.equal(payload.jsonrpc, '2.0');
-                assert.equal(payload.method, 'eth_newBlockFilter');
+                assert.equal(payload.method, 'exp_newBlockFilter');
 
                 done();
             }

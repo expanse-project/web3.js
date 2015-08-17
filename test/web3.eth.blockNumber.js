@@ -8,10 +8,10 @@ var method = 'blockNumber';
 var tests = [{
     result: '0xb',
     formattedResult: 11,
-    call: 'eth_'+ method
+    call: 'exp_'+ method
 }];
 
-describe('web3.eth', function () {
+describe('web3.exp', function () {
     describe(method, function () {
         tests.forEach(function (test, index) {
             it('property test: ' + index, function () {
@@ -27,7 +27,7 @@ describe('web3.eth', function () {
                 });
 
                 // when 
-                var result = web3.eth[method];
+                var result = web3.exp[method];
                 
                 // then
                 assert.strictEqual(test.formattedResult, result);
@@ -46,7 +46,7 @@ describe('web3.eth', function () {
                 });
 
                 // when 
-                web3.eth.getBlockNumber(function (err, result) {
+                web3.exp.getBlockNumber(function (err, result) {
                     assert.strictEqual(test.formattedResult, result);
                     done();
                 });
