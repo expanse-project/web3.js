@@ -4942,7 +4942,7 @@ module.exports = {
     along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /**
- * @file eth.js
+ * @file exp.js
  * @author Marek Kotewicz <marek@ethdev.com>
  * @author Fabian Vogelsteller <fabian@ethdev.com>
  * @date 2015
@@ -5234,7 +5234,7 @@ module.exports = {
     You should have received a copy of the GNU Lesser General Public License
     along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
 */
-/** @file eth.js
+/** @file exp.js
  * @authors:
  *   Marek Kotewicz <marek@ethdev.com>
  * @date 2015
