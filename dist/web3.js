@@ -2490,7 +2490,7 @@ web3.eth = {};
 
 /*jshint maxparams:4 */
 web3.exp.filter = function (fil, callback) {
-    return new Filter(fil, watches.eth(), formatters.outputLogFormatter, callback);
+    return new Filter(fil, watches.exp(), formatters.outputLogFormatter, callback);
 };
 /*jshint maxparams:3 */
 
@@ -2657,7 +2657,7 @@ AllSolidityEvents.prototype.execute = function (options, callback) {
 
     var o = this.encode(options);
     var formatter = this.decode.bind(this);
-    return new Filter(o, watches.eth(), formatter, callback);
+    return new Filter(o, watches.exp(), formatter, callback);
 };
 
 AllSolidityEvents.prototype.attachToContract = function (contract) {
@@ -3243,7 +3243,7 @@ SolidityEvent.prototype.execute = function (indexed, options, callback) {
     
     var o = this.encode(indexed, options);
     var formatter = this.decode.bind(this);
-    return new Filter(o, watches.eth(), formatter, callback);
+    return new Filter(o, watches.exp(), formatter, callback);
 };
 
 /**
