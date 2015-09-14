@@ -20,7 +20,7 @@ var tests = [{
     }],
     result: '0xf',
     formattedResult: '0xf',
-    call: 'eth_newFilter'
+    call: 'exp_newFilter'
 },{
     args: [{
         fromBlock: 'latest',
@@ -35,19 +35,19 @@ var tests = [{
     }],
     result: '0xf',
     formattedResult: '0xf',
-    call: 'eth_newFilter'
+    call: 'exp_newFilter'
 },{
     args: ['latest'],
     formattedArgs: [],
     result: '0xf',
     formattedResult: '0xf',
-    call: 'eth_newBlockFilter'
+    call: 'exp_newBlockFilter'
 },{
     args: ['pending'],
     formattedArgs: [],
     result: '0xf',
     formattedResult: '0xf',
-    call: 'eth_newPendingTransactionFilter'
+    call: 'exp_newPendingTransactionFilter'
 }];
 
 describe('web3.exp', function () {

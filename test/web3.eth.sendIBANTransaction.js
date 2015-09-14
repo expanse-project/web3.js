@@ -24,7 +24,7 @@ describe('web3.exp.sendIBANTransaction', function () {
         provider.injectValidation(function (payload) {
             if (step === 0) {
                 step++;
-                assert.equal(payload.method, 'eth_call');
+                assert.equal(payload.method, 'exp_call');
                 assert.deepEqual(payload.params, [{
                    data: "0x3b3b57de5852454700000000000000000000000000000000000000000000000000000000",
                    to: web3.exp.ibanNamereg.address
@@ -32,7 +32,7 @@ describe('web3.exp.sendIBANTransaction', function () {
 
                 return;
             } 
-            assert.equal(payload.method, 'eth_sendTransaction');
+            assert.equal(payload.method, 'exp_sendTransaction');
             assert.deepEqual(payload.params, [{
                 data: '0xb214faa54741564f46594f524b0000000000000000000000000000000000000000000000',
                 from: address,

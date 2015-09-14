@@ -9,12 +9,12 @@ var tests = [{
     args: ['latest'],
     firstResult: 1,
     firstPayload: {
-        method: "eth_newBlockFilter",
+        method: "exp_newBlockFilter",
         params: []
     },
     secondResult: ['0x1234'],
     secondPayload: {
-        method: "eth_getFilterChanges"
+        method: "exp_getFilterChanges"
     }
 },
 {
@@ -22,12 +22,12 @@ var tests = [{
     args: ['pending'],
     firstResult: 1,
     firstPayload: {
-        method: "eth_newPendingTransactionFilter",
+        method: "exp_newPendingTransactionFilter",
         params: []
     },
     secondResult: ['0x1234'],
     secondPayload: {
-        method: "eth_getFilterChanges"
+        method: "exp_getFilterChanges"
     }
 }];
 

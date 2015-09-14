@@ -8,7 +8,7 @@ describe('lib/web3/method', function () {
             
             var callback = function (err, result) {};
             var expected = {
-                method: 'eth_getBalance',
+                method: 'exp_getBalance',
                 callback: callback,
                 params: ['0x0000000000000000000000000000000000000000', 'latest'],
             };
