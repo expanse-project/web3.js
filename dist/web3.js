@@ -2486,7 +2486,7 @@ web3.providers = {};
 web3.currentProvider = null;
 web3.version = {};
 web3.version.api = version.version;
-web3.eth = {};
+web3.exp = {};
 
 /*jshint maxparams:4 */
 web3.exp.filter = function (fil, callback) {
@@ -2530,7 +2530,7 @@ web3.createBatch = function () {
 };
 
 // ADD defaultblock
-Object.defineProperty(web3.eth, 'defaultBlock', {
+Object.defineProperty(web3.exp, 'defaultBlock', {
     get: function () {
         return c.defaultBlock;
     },
@@ -2540,7 +2540,7 @@ Object.defineProperty(web3.eth, 'defaultBlock', {
     }
 });
 
-Object.defineProperty(web3.eth, 'defaultAccount', {
+Object.defineProperty(web3.exp, 'defaultAccount', {
     get: function () {
         return c.defaultAccount;
     },
@@ -2571,8 +2571,8 @@ web3._extend.Property = require('./web3/property');
 setupProperties(web3, web3Properties);
 setupMethods(web3.net, net.methods);
 setupProperties(web3.net, net.properties);
-setupMethods(web3.eth, eth.methods);
-setupProperties(web3.eth, eth.properties);
+setupMethods(web3.exp, eth.methods);
+setupProperties(web3.exp, eth.properties);
 setupMethods(web3.db, db.methods);
 setupMethods(web3.shh, shh.methods);
 
@@ -5001,7 +5001,7 @@ var uncleCountCall = function (args) {
     return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'eth_getUncleCountByBlockHash' : 'eth_getUncleCountByBlockNumber';
 };
 
-/// @returns an array of objects describing web3.eth api methods
+/// @returns an array of objects describing web3.exp api methods
 
 var getBalance = new Method({
     name: 'getBalance',
@@ -5177,7 +5177,7 @@ var methods = [
     getWork
 ];
 
-/// @returns an array of objects describing web3.eth api properties
+/// @returns an array of objects describing web3.exp api properties
 
 
 
@@ -5243,11 +5243,11 @@ module.exports = {
 var utils = require('../../utils/utils');
 var Property = require('../property');
 
-/// @returns an array of objects describing web3.eth api methods
+/// @returns an array of objects describing web3.exp api methods
 var methods = [
 ];
 
-/// @returns an array of objects describing web3.eth api properties
+/// @returns an array of objects describing web3.exp api properties
 var properties = [
     new Property({
         name: 'listening',

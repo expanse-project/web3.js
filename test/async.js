@@ -35,7 +35,7 @@ describe('async', function () {
             });
 
             // when 
-            web3.eth[method](test.input, function(error, result){
+            web3.exp[method](test.input, function(error, result){
 
                 // then
                 assert.isNull(error);
@@ -62,7 +62,7 @@ describe('async', function () {
             });
 
             // when 
-            web3.eth[method](test.input, function(error, result){
+            web3.exp[method](test.input, function(error, result){
 
                 // then
                 assert.isUndefined(result);

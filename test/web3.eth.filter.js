@@ -50,7 +50,7 @@ var tests = [{
     call: 'eth_newPendingTransactionFilter'
 }];
 
-describe('web3.eth', function () {
+describe('web3.exp', function () {
     describe(method, function () {
         tests.forEach(function (test, index) {
             it('property test: ' + index, function () {
@@ -66,7 +66,7 @@ describe('web3.eth', function () {
                 });
 
                 // call
-                web3.eth[method].apply(null, test.args);
+                web3.exp[method].apply(null, test.args);
                 
             });
         });
