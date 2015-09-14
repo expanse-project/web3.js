@@ -34,7 +34,7 @@ var tests = [{
 
 var testPolling = function (tests) {
     
-    describe('web3.eth.filter.polling', function () {
+    describe('web3.exp.filter.polling', function () {
         tests.forEach(function (test, index) {
             it('should create && successfully poll filter', function (done) {
 

@@ -58,8 +58,8 @@ web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
 There you go, now you can use it:
 
 ```js
-var coinbase = web3.eth.coinbase;
-var balance = web3.eth.getBalance(coinbase);
+var coinbase = web3.exp.coinbase;
+var balance = web3.exp.getBalance(coinbase);
 ```
 
 You can find more examples in [`example`](https://github.com/ethereum/web3.js/tree/master/example) directory.

@@ -2429,7 +2429,7 @@ module.exports={
 
 var version = require('./version.json');
 var net = require('./web3/methods/net');
-var eth = require('./web3/methods/eth');
+var eth = require('./web3/methods/exp');
 var db = require('./web3/methods/db');
 var shh = require('./web3/methods/shh');
 var watches = require('./web3/methods/watches');
@@ -2489,7 +2489,7 @@ web3.version.api = version.version;
 web3.eth = {};
 
 /*jshint maxparams:4 */
-web3.eth.filter = function (fil, callback) {
+web3.exp.filter = function (fil, callback) {
     return new Filter(fil, watches.eth(), formatters.outputLogFormatter, callback);
 };
 /*jshint maxparams:3 */
@@ -2579,7 +2579,7 @@ setupMethods(web3.shh, shh.methods);
 module.exports = web3;
 
 
-},{"./utils/config":18,"./utils/sha3":19,"./utils/utils":20,"./version.json":21,"./web3/batch":24,"./web3/filter":28,"./web3/formatters":29,"./web3/method":35,"./web3/methods/db":36,"./web3/methods/eth":37,"./web3/methods/net":38,"./web3/methods/shh":39,"./web3/methods/watches":40,"./web3/property":42,"./web3/requestmanager":43}],23:[function(require,module,exports){
+},{"./utils/config":18,"./utils/sha3":19,"./utils/utils":20,"./version.json":21,"./web3/batch":24,"./web3/filter":28,"./web3/formatters":29,"./web3/method":35,"./web3/methods/db":36,"./web3/methods/exp":37,"./web3/methods/net":38,"./web3/methods/shh":39,"./web3/methods/watches":40,"./web3/property":42,"./web3/requestmanager":43}],23:[function(require,module,exports){
 /*
     This file is part of ethereum.js.
 
@@ -2848,7 +2848,7 @@ var checkForContractAddress = function(contract, abi, callback){
         callbackFired = false;
 
     // wait for receipt
-    var filter = web3.eth.filter('latest', function(e){
+    var filter = web3.exp.filter('latest', function(e){
         if(!e && !callbackFired) {
             count++;
 
@@ -2868,10 +2868,10 @@ var checkForContractAddress = function(contract, abi, callback){
 
             } else {
 
-                web3.eth.getTransactionReceipt(contract.transactionHash, function(e, receipt){
+                web3.exp.getTransactionReceipt(contract.transactionHash, function(e, receipt){
                     if(receipt && !callbackFired) {
 
-                        web3.eth.getCode(receipt.contractAddress, function(e, code){
+                        web3.exp.getCode(receipt.contractAddress, function(e, code){
                             /*jshint maxcomplexity: 5 */
 
                             if(callbackFired)
@@ -2955,7 +2955,7 @@ ContractFactory.prototype.new = function () {
     if(callback) {
 
         // wait for the contract address adn check if the code was deployed
-        web3.eth.sendTransaction(options, function (err, hash) {
+        web3.exp.sendTransaction(options, function (err, hash) {
             if (err) {
                 callback(err);
             } else {
@@ -2969,7 +2969,7 @@ ContractFactory.prototype.new = function () {
             }
         });
     } else {
-        var hash = web3.eth.sendTransaction(options);
+        var hash = web3.exp.sendTransaction(options);
         // add the transaction hash
         contract.transactionHash = hash;
         checkForContractAddress(contract, _this.abi);
@@ -3877,12 +3877,12 @@ SolidityFunction.prototype.call = function () {
 
 
     if (!callback) {
-        var output = web3.eth.call(payload, defaultBlock);
+        var output = web3.exp.call(payload, defaultBlock);
         return this.unpackOutput(output);
     } 
         
     var self = this;
-    web3.eth.call(payload, defaultBlock, function (error, output) {
+    web3.exp.call(payload, defaultBlock, function (error, output) {
         callback(error, self.unpackOutput(output));
     });
 };
@@ -3899,10 +3899,10 @@ SolidityFunction.prototype.sendTransaction = function () {
     var payload = this.toPayload(args);
 
     if (!callback) {
-        return web3.eth.sendTransaction(payload);
+        return web3.exp.sendTransaction(payload);
     }
 
-    web3.eth.sendTransaction(payload, callback);
+    web3.exp.sendTransaction(payload, callback);
 };
 
 /**
@@ -3917,10 +3917,10 @@ SolidityFunction.prototype.estimateGas = function () {
     var payload = this.toPayload(args);
 
     if (!callback) {
-        return web3.eth.estimateGas(payload);
+        return web3.exp.estimateGas(payload);
     }
 
-    web3.eth.estimateGas(payload, callback);
+    web3.exp.estimateGas(payload, callback);
 };
 
 /**
@@ -5362,7 +5362,7 @@ module.exports = {
 
 var Method = require('../method');
 
-/// @returns an array of objects describing web3.eth.filter api methods
+/// @returns an array of objects describing web3.exp.filter api methods
 var eth = function () {
     var newFilterCall = function (args) {
         var type = args[0];
@@ -5972,7 +5972,7 @@ var transfer = function (from, to, value, callback) {
  * @param {Function} callback, callback
  */
 var transferToAddress = function (from, to, value, callback) {
-    return web3.eth.sendTransaction({
+    return web3.exp.sendTransaction({
         address: to,
         from: from,
         value: value
@@ -7633,11 +7633,11 @@ var namereg = require('./lib/web3/namereg');
 web3.providers.HttpProvider = require('./lib/web3/httpprovider');
 web3.providers.IpcProvider = require('./lib/web3/ipcprovider');
 
-web3.eth.contract = require('./lib/web3/contract');
-web3.eth.namereg = namereg.namereg;
-web3.eth.ibanNamereg = namereg.ibanNamereg;
-web3.eth.sendIBANTransaction = require('./lib/web3/transfer');
-web3.eth.iban = require('./lib/web3/iban');
+web3.exp.contract = require('./lib/web3/contract');
+web3.exp.namereg = namereg.namereg;
+web3.exp.ibanNamereg = namereg.ibanNamereg;
+web3.exp.sendIBANTransaction = require('./lib/web3/transfer');
+web3.exp.iban = require('./lib/web3/iban');
 
 // dont override global variable
 if (typeof window !== 'undefined' && typeof window.web3 === 'undefined') {

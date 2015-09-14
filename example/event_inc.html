@@ -19,7 +19,7 @@
         "    uint x; " +
         "}";
 
-        var compiled = web3.eth.compile.solidity(source);
+        var compiled = web3.exp.compile.solidity(source);
         var code = compiled.Contract.code;
         var abi = compiled.Contract.info.abiDefinition;
 
@@ -33,12 +33,12 @@
     
         var createContract = function () {
             // let's assume that we have a private key to coinbase ;)
-            web3.eth.defaultAccount = web3.eth.coinbase;
+            web3.exp.defaultAccount = web3.exp.coinbase;
             
             document.getElementById('create').style.visibility = 'hidden';
             document.getElementById('status').innerText = "transaction sent, waiting for confirmation";
 
-            web3.eth.contract(abi).new({data: code}, function (err, c) {
+            web3.exp.contract(abi).new({data: code}, function (err, c) {
                 if (err) {
                     console.error(err);
                     return;

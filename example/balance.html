@@ -10,14 +10,14 @@
     web3.setProvider(new web3.providers.HttpProvider());
 
     function watchBalance() {
-        var coinbase = web3.eth.coinbase;
+        var coinbase = web3.exp.coinbase;
 
-        var originalBalance = web3.eth.getBalance(coinbase).toNumber();
+        var originalBalance = web3.exp.getBalance(coinbase).toNumber();
         document.getElementById('coinbase').innerText = 'coinbase: ' + coinbase;
         document.getElementById('original').innerText = ' original balance: ' + originalBalance + '    watching...';
 
-        web3.eth.filter('latest').watch(function() {
-            var currentBalance = web3.eth.getBalance(coinbase).toNumber();
+        web3.exp.filter('latest').watch(function() {
+            var currentBalance = web3.exp.getBalance(coinbase).toNumber();
             document.getElementById("current").innerText = 'current: ' + currentBalance;
             document.getElementById("diff").innerText = 'diff:    ' + (currentBalance - originalBalance);
         });

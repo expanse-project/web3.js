@@ -12,7 +12,7 @@ var implementation = {
     stopPolling: empty,
 };
 
-describe('web3.eth.filter', function () {
+describe('web3.exp.filter', function () {
     describe('methods', function () {
         // var f = filter({}, implementation);
 

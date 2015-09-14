@@ -13,7 +13,7 @@ describe('lib/web3/method', function () {
                 params: ['0x0000000000000000000000000000000000000000', 'latest'],
             };
 
-            var request = web3.eth.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback);
+            var request = web3.exp.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback);
 
             expected.format = request.format;
             assert.deepEqual(request, expected);
