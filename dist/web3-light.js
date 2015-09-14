@@ -2429,7 +2429,7 @@ module.exports={
 
 var version = require('./version.json');
 var net = require('./web3/methods/net');
-var eth = require('./web3/methods/exp');
+var exp = require('./web3/methods/exp');
 var db = require('./web3/methods/db');
 var shh = require('./web3/methods/shh');
 var watches = require('./web3/methods/watches');
@@ -5363,7 +5363,7 @@ module.exports = {
 var Method = require('../method');
 
 /// @returns an array of objects describing web3.exp.filter api methods
-var eth = function () {
+var exp = function () {
     var newFilterCall = function (args) {
         var type = args[0];
 
