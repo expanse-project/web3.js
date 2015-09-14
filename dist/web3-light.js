@@ -5448,7 +5448,7 @@ var shh = function () {
 };
 
 module.exports = {
-    eth: eth,
+    exp: exp,
     shh: shh
 };
 
