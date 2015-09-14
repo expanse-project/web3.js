@@ -9,8 +9,8 @@ var tests = [{
     formattedArgs: [],
     result: true,
     formattedResult: true,
-    call: 'eth_'+ method
+    call: 'exp_'+ method
 }];
 
-testMethod.runTests('eth', method, tests);
+testMethod.runTests('exp', method, tests);
 

@@ -25,5 +25,5 @@ var tests = [{
     call: 'eth_getBlockTransactionCountByNumber'
 }];
 
-testMethod.runTests('eth', method, tests);
+testMethod.runTests('exp', method, tests);
 

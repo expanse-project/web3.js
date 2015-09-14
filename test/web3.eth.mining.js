@@ -8,7 +8,7 @@ var method = 'mining';
 var tests = [{
     result: true,
     formattedResult: true,
-    call: 'eth_'+ method
+    call: 'exp_'+ method
 }];
 
 describe('web3.exp', function () {

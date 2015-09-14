@@ -10,14 +10,14 @@ var tests = [{
     formattedArgs: [],
     result: ['solidity'],
     formattedResult: ['solidity'],
-    call: 'eth_'+ method
+    call: 'exp_'+ method
 },{
     args: [],
     formattedArgs: [],
     result: ['solidity'],
     formattedResult: ['solidity'],
-    call: 'eth_'+ method
+    call: 'exp_'+ method
 }];
 
-testMethod.runTests('eth', method, tests);
+testMethod.runTests('exp', method, tests);
 

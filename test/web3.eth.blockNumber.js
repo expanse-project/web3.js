@@ -8,7 +8,7 @@ var method = 'blockNumber';
 var tests = [{
     result: '0xb',
     formattedResult: 11,
-    call: 'eth_'+ method
+    call: 'exp_'+ method
 }];
 
 describe('web3.exp', function () {

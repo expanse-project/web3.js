@@ -132,4 +132,4 @@ var tests = [{
     call: 'eth_getUncleByBlockNumberAndIndex'
 }];
 
-testMethod.runTests('eth', method, tests);
+testMethod.runTests('exp', method, tests);
